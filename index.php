@@ -2,6 +2,11 @@
 <html lang="en">
 
 <head>
+  <?php
+  if (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'localhost:5173'): ?>
+    <script type="module" src="http://localhost:5173/@vite/client"></script>
+  <?php endif; ?>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elixirul Tineretii</title>
@@ -11,7 +16,6 @@
     rel="stylesheet">
   <link rel="stylesheet" href="./index.css">
   <link rel="stylesheet" href="./theme.css">
-  <?php include_once __DIR__ . '/vite-client.php'; ?>
 </head>
 
 <body data-theme="elixirul-tineretii">
@@ -27,18 +31,18 @@
       </div>
       <div class="navbar-end flex items-center gap-4">
         <div class="dropdown relative  hidden md:inline-flex">
-  <button id="dropdown-default" type="button" class="dropdown-toggle btn btn-primary btn-outline" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-     <span class="icon-[tabler--droplet] size-6 rtl:rotate-180"></span>
-     <h1>Teme</h1>
-    <span class="icon-[tabler--chevron-down] dropdown-open:rotate-180 size-4"></span>
-  </button>
-  
-              <ul class="dropdown-menu dropdown-open:opacity-100 hidden min-w-60" role="menu"
-                aria-orientation="vertical" aria-labelledby="scope-dropdown-nested">
-                <li><a class="dropdown-item" href="#"><span class="icon-[tabler--moon] size-6"></span>Dark Mode</a></li>
-                <li><a class="dropdown-item" href="#"><span class="icon-[tabler--sun] size-6"></span>Light Mode</a></li>
-              </ul>
-</div>
+          <button id="dropdown-default" type="button" class="dropdown-toggle btn btn-primary btn-outline" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+            <span class="icon-[tabler--droplet] size-6 rtl:rotate-180"></span>
+            <h1>Teme</h1>
+            <span class="icon-[tabler--chevron-down] dropdown-open:rotate-180 size-4"></span>
+          </button>
+
+          <ul class="dropdown-menu dropdown-open:opacity-100 hidden min-w-60" role="menu"
+            aria-orientation="vertical" aria-labelledby="scope-dropdown-nested">
+            <li><a class="dropdown-item" href="#"><span class="icon-[tabler--moon] size-6"></span>Dark Mode</a></li>
+            <li><a class="dropdown-item" href="#"><span class="icon-[tabler--sun] size-6"></span>Light Mode</a></li>
+          </ul>
+        </div>
         <a class="btn btn-primary hidden md:flex" href="./login.php">
           <svg class="icon-[tabler--login-2] size-6"></svg>
           <span class="hidden sm:inline">Logare</span>
@@ -47,7 +51,7 @@
           <svg class="icon-[tabler--user] size-6"></svg>
           <span class="hidden sm:inline">Nume</span>
         </a>
-       
+
         <div class="dropdown relative inline-flex md:hidden">
           <button id="scope-dropdown" type="button" class="dropdown-toggle btn btn-primary" aria-haspopup="menu"
             aria-expanded="false" aria-label="Dropdown">
@@ -56,12 +60,12 @@
           </button>
           <ul class="dropdown-menu dropdown-open:opacity-100 hidden min-w-60" role="menu" aria-orientation="vertical"
             aria-labelledby="scope-dropdown">
-            
-            
+
+
             <li><a class="dropdown-item" href="#"><svg class="icon-[tabler--login-2] size-6"></svg>
                 <span>Logare</span></a></li>
-                <div class="divider"></div>
-                <li class="dropdown relative flex items-center [--scope:window] [--offset:15] [--placement:bottom]">
+            <div class="divider"></div>
+            <li class="dropdown relative flex items-center [--scope:window] [--offset:15] [--placement:bottom]">
 
               <button id="scope-dropdown-nested" class="dropdown-toggle dropdown-item" aria-haspopup="menu"
                 aria-expanded="false" aria-label="Dropdown">
