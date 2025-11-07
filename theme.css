@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@plugin "flyonui" {
+  themes: black --prefersdark;
+}
+@import "./node_modules/flyonui/variants.css"; /* Require only if you want to use FlyonUI JS component */
+@source "./node_modules/flyonui/dist/index.js"; /* Require only if you want to use FlyonUI JS component */
+@plugin "@iconify/tailwind4";
+
+@plugin "flyonui/theme" {
+name: "elixirul-tineretii";
+default: true;
+prefersdark: true;
+color-scheme: "dark";
+
+--color-base-100: oklch(0.08 0.02 348.1);
+--color-base-100-transparent: oklch(0.08 0.02 348.1 / 0.85);
+--color-base-200: oklch(0.12 0.03 301.2);
+--color-base-300: oklch(0.16 0.03 301.2);
+--color-base-content: oklch(94% 0.007 106.5);
+
+--color-primary: oklch(0.694 0.172 301.2);
+--color-primary-content: oklch(15.0% 0.04 348.1);
+--color-secondary:oklch(0.736 0.198 348.1) ;
+
+--color-secondary-content: oklch(14.8% 0.03 301.2);
+--color-accent: oklch(83.392% 0.124 66.558);
+--color-accent-content: oklch(16.678% 0.024 66.558);
+
+--color-neutral: oklch(0.12 0.03 301.2);
+--color-neutral-content: oklch(94% 0.007 106.5);
+
+--color-info: oklch(88.263% 0.093 212.846);
+--color-info-content: oklch(17.652% 0.018 212.846);
+
+--color-success: oklch(87.099% 0.219 148.024);
+--color-success-content: oklch(17.419% 0.043 148.024);
+
+--color-warning: oklch(95.533% 0.134 112.757);
+--color-warning-content: oklch(19.106% 0.026 112.757);
+
+--color-error: oklch(68.22% 0.206 24.43);
+--color-error-content: oklch(13.644% 0.041 24.43);
+
+--color-gradient: linear-gradient(
+135deg,
+oklch(73.6% 0.198 348.1) 0%,
+oklch(69.4% 0.172 301.2) 100%
+);
+
+--radius-selector: 0.5rem;
+--radius-field: 0.5rem;
+--radius-box: 0.5rem;
+--size-selector: 0.25rem;
+--size-field: 0.25rem;
+--border: 1px;
+--depth: 1;
+--noise: 0;
+}
