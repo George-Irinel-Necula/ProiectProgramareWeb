@@ -7,6 +7,13 @@ function isNotEmpty($email,$username,$password,$password_repeat) {
     return true;
 }
 
+function isNotEmptyLogIn($email,$password) {
+    if(empty($email)||empty($password)) {
+        return false;
+    }
+    return true;
+}
+
 function passwordMatch($password,$password_repeat){
     if($password==$password_repeat){
         return true;
@@ -15,24 +22,25 @@ function passwordMatch($password,$password_repeat){
         return false;
 }
 
-function userExists($conn,$username,$email){
-    $sql="SELECT * FROM users WHERE username = ? || email = ?";
+function userExists($conn,$email){
+    $sql="SELECT * FROM users WHERE email = ?";
     $stmt=mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql)){
         header("location: ../register.php?error=stmt_error");
         exit();
     }
-    mysqli_stmt_bind_param($stmt,"ss",$username,$email);
+    mysqli_stmt_bind_param($stmt,"s",$email);
     mysqli_stmt_execute($stmt);
 
     $result=mysqli_stmt_get_result($stmt);
-    if($row=mysqli_fetch_assoc($result)){
+    $row = mysqli_fetch_assoc($result);
+    mysqli_stmt_close($stmt);
+    if($row){
         return $row;
     }
     else {
         return false;
     }
-    mysqli_stmt_close($stmt);
 }
 
 function createUser($conn,$username,$email,$password,$password_repeat){
@@ -50,6 +58,27 @@ function createUser($conn,$username,$email,$password,$password_repeat){
     mysqli_stmt_close($stmt);
     header("location: ../login.php?");
     exit();
+}
+
+function logInUser($conn,$email,$password){
+    $userExists = userExists($conn,$email);
+
+    if($userExists==false){
+        header("location: ../login.php?error=incorrectLogin");
+        exit();
+    }
+    $hashedPassword=$userExists["password"];
+    $passwordVerify=password_verify($password,$hashedPassword);
+
+    if($passwordVerify==false){
+        header("location: ../login.php?error=incorrectLogin");
+        exit();
+    }else if($passwordVerify==true){
+    session_start();
+    $_SESSION["email"]=$userExists["email"];
+        header("location: ../index.php?login=success");
+        exit();
+}
 }
 
 ?>

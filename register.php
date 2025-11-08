@@ -13,21 +13,7 @@
 </head>
 
 <body data-theme="elixirul-tineretii">
-  <div class="soft-light">
-  </div>
-  <nav class="navbar w-full shadow-base-100/50 shadow-sm px-6 backdrop-blur-sm">
-    <div class="flex w-full md:w-3/4 justify-between mx-auto">
-      <div class="flex flex-1 items-center gap-2 ">
-        <svg class="icon-[tabler--spray] size-6"></svg>
-        <a class="text-base-content text-2xl font-bold no-underline" href="./index.php">
-          ElixirulTineretii
-        </a>
-        <div class="divider divider-horizontal px-2 hidden md:flex"></div>
-        <h1 class="text-xl font-bold hidden md:inline">Inregistrare</h1>
-      </div>
-
-    </div>
-  </nav>
+  <?php include "./src/nav-component.php"?>
   <main>
     <div
       class="flex h-auto min-h-[calc(100vh-72px)] items-center justify-center overflow-x-hidden bg-[url('https://cdn.flyonui.com/fy-assets/blocks/marketing-ui/auth/auth-background-2.png')] bg-cover bg-center bg-no-repeat py-10">
@@ -117,7 +103,7 @@
                   <input type="checkbox" class="checkbox checkbox-primary" id="rememberMe" />
                   <label class="label-text text-base-content/80 p-0 text-base" for="rememberMe">Tine-ma minte</label>
                 </div>
-                <a href="#" class="link link-animated link-primary font-normal">Ai uitat parola?</a>
+                <a href="login.php" class="link link-animated link-primary font-normal">Ai cont?</a>
               </div>
               <button type="submit" name="submit" class="btn btn-lg btn-primary btn-gradient btn-block">Inregistreaza-te</button>
             </form>

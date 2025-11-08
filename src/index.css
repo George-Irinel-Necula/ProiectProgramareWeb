@@ -28,3 +28,7 @@ html {
     background: none;
     min-height: 72px;
 }
+
+#logout:hover{
+  background-color: var(--color-error);
+}

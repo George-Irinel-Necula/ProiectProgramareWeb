@@ -5,7 +5,7 @@
         $jsFile = $manifest['src/main.js']['file'] ?? null;
         ?>
         <?php if ($cssFile): ?>
-            <link rel="stylesheet" href="/vite-php-project/dist/<?php echo $cssFile; ?>">
+            <link rel="stylesheet" href="/Proiect-PW/dist/<?php echo $cssFile; ?>">
         <?php endif; ?>
     <?php else: ?>
         <script type="module" src="http://localhost:5173/@vite/client"></script>

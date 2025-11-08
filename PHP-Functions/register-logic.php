@@ -21,7 +21,7 @@ include_once './functions.php';
     }
    
 
-    if(userExists($conn,$username,$email)!==false){
+    if(userExists($conn,$email)!==false){
     header("location: ../register.php?error=userExists");
     exit();
     }
@@ -31,5 +31,6 @@ include_once './functions.php';
 
 else{
     header("location: ../register.php");
+    exit();
 }
 ?>
