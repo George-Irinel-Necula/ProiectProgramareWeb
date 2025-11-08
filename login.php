@@ -2,10 +2,7 @@
 <html lang="en">
 
 <head>
-  <?php
-  if (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'localhost:5173'): ?>
-    <script type="module" src="http://localhost:5173/@vite/client"></script>
-  <?php endif; ?>
+<?php require "./PHP-Functions/live-server.php"?>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +20,7 @@
     <div class="flex w-full md:w-3/4 justify-between mx-auto">
       <div class="flex flex-1 items-center gap-2 ">
         <svg class="icon-[tabler--spray] size-6"></svg>
-        <a class="text-base-content text-2xl font-bold no-underline" href="./index.html">
+        <a class="text-base-content text-2xl font-bold no-underline" href="./index.php">
           ElixirulTineretii
         </a>
         <div class="divider divider-horizontal px-2 hidden md:flex"></div>
@@ -78,17 +75,18 @@
 
 
           <div class="">
-            <form class="mb-4 space-y-8" onsubmit="return false;">
+            <form class="mb-4 space-y-8" method="post" action="./PHP-Functions/login-logic.php">
               <div>
-                <label class="label-text" for="userEmail">Adresa de email*</label>
-                <input type="email" placeholder="Enter your email address" class="input" id="userEmail" required />
+                <label class="label-text" for="userEmail">Adresa de email</label>
+                <input type="email" placeholder="Enter your email address" class="input" id="userEmail" name="email" required />
               </div>
               <div>
                 <label class="label-text" for="userPassword">Parola*</label>
                 <div class="input">
-                  <input id="userPassword" type="password" placeholder="············" required />
+                  <input id="userPassword" type="password" name="password" placeholder="············" required />
                   <button
-                    type="button"
+                    type="submit"
+                    name="submit"
                     data-toggle-password='{ "target": "#userPassword" }'
                     class="block cursor-pointer"
                     aria-label="userPassword">

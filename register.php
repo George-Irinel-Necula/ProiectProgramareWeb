@@ -2,11 +2,7 @@
 <html lang="en">
 
 <head>
-  <?php
-  if (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'localhost:5173'): ?>
-    <script type="module" src="http://localhost:5173/@vite/client"></script>
-  <?php endif; ?>
-
+  <?php require "./PHP-Functions/live-server.php"?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elixirul Tineretii</title>
@@ -23,7 +19,7 @@
     <div class="flex w-full md:w-3/4 justify-between mx-auto">
       <div class="flex flex-1 items-center gap-2 ">
         <svg class="icon-[tabler--spray] size-6"></svg>
-        <a class="text-base-content text-2xl font-bold no-underline" href="./index.html">
+        <a class="text-base-content text-2xl font-bold no-underline" href="./index.php">
           ElixirulTineretii
         </a>
         <div class="divider divider-horizontal px-2 hidden md:flex"></div>
@@ -78,21 +74,22 @@
 
 
           <div class="">
-            <form class="mb-4 space-y-4" onsubmit="return false;">
+            <form class="mb-4 space-y-4" method="post" action="./PHP-Functions/register-logic.php">
               <div>
                 <label class="label-text" for="userEmail">Adresa de email</label>
-                <input type="email" placeholder="Introdu adresa de mail" class="input" id="userEmail" required />
+                <input type="email" name="email" placeholder="Introdu adresa de mail" class="input" id="userEmail" required />
               </div>
               <div>
                 <label class="label-text" for="userEmail">Nume</label>
-                <input type="email" placeholder="Nume" class="input" id="userEmail" required />
+                <input type="text" name="username" placeholder="Nume" class="input" id="userName" required />
               </div>
               <div>
                 <label class="label-text" for="userPassword">Parola</label>
                 <div class="input">
-                  <input id="userPassword" type="password" placeholder="············" required />
+                  <input id="userPassword" type="password" name="password" placeholder="············" required />
                   <button
                     type="button"
+                    name="submit"
                     data-toggle-password='{ "target": "#userPassword" }'
                     class="block cursor-pointer"
                     aria-label="userPassword">
@@ -104,7 +101,7 @@
               <div>
                 <label class="label-text" for="userPassword">Confirma parola</label>
                 <div class="input">
-                  <input id="userPassword" type="password" placeholder="············" required />
+                  <input id="userPassword" name="password_repeat" type="password" placeholder="············" required />
                   <button
                     type="button"
                     data-toggle-password='{ "target": "#userPassword" }'
@@ -122,7 +119,7 @@
                 </div>
                 <a href="#" class="link link-animated link-primary font-normal">Ai uitat parola?</a>
               </div>
-              <button class="btn btn-lg btn-primary btn-gradient btn-block">Inregistreaza-te</button>
+              <button type="submit" name="submit" class="btn btn-lg btn-primary btn-gradient btn-block">Inregistreaza-te</button>
             </form>
 
 
