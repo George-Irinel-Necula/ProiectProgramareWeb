@@ -2,11 +2,7 @@
 <html lang="en">
 
 <head>
-  <?php
-  if (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'localhost:5173'): ?>
-    <script type="module" src="http://localhost:5173/@vite/client"></script>
-  <?php endif; ?>
-
+  <?php require "./PHP-Functions/live-server.php"?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elixirul Tineretii</title>

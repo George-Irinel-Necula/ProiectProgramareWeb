@@ -2,10 +2,7 @@
 <html lang="en">
 
 <head>
-  <?php
-  if (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'localhost:5173'): ?>
-    <script type="module" src="http://localhost:5173/@vite/client"></script>
-  <?php endif; ?>
+  <?php require "./PHP-Functions/live-server.php"?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elixirul Tineretii</title>
@@ -16,21 +13,7 @@
 </head>
 
 <body data-theme="elixirul-tineretii">
-  <div class="soft-light">
-  </div>
-  <nav class="navbar w-full shadow-base-100/50 shadow-sm px-6 backdrop-blur-sm">
-    <div class="flex w-full md:w-3/4 justify-between mx-auto">
-      <div class="flex flex-1 items-center gap-2 ">
-        <svg class="icon-[tabler--spray] size-6"></svg>
-        <a class="text-base-content text-2xl font-bold no-underline" href="./index.html">
-          ElixirulTineretii
-        </a>
-        <div class="divider divider-horizontal px-2 hidden md:flex"></div>
-        <h1 class="text-xl font-bold hidden md:inline">Profil</h1>
-      </div>
-
-    </div>
-  </nav>
+  <?php include "./src/nav-component.php"?>
   <main class="px-6">
     <div class="container bg-base-200 w-3/4 mx-auto mt-12 p-8 rounded-lg shadow-lg">
       <h1 class="text-3xl font-semibold mb-2">Profil</h1>

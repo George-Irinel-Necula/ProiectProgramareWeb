@@ -2,10 +2,7 @@
 <html lang="en">
 
 <head>
-  <?php
-  if (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'localhost:5173'): ?>
-    <script type="module" src="http://localhost:5173/@vite/client"></script>
-  <?php endif; ?>
+<?php require "./PHP-Functions/live-server.php"?>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,21 +14,7 @@
 </head>
 
 <body data-theme="elixirul-tineretii">
-  <div class="soft-light">
-  </div>
-  <nav class="navbar w-full shadow-base-100/50 shadow-sm px-6 backdrop-blur-sm">
-    <div class="flex w-full md:w-3/4 justify-between mx-auto">
-      <div class="flex flex-1 items-center gap-2 ">
-        <svg class="icon-[tabler--spray] size-6"></svg>
-        <a class="text-base-content text-2xl font-bold no-underline" href="./index.html">
-          ElixirulTineretii
-        </a>
-        <div class="divider divider-horizontal px-2 hidden md:flex"></div>
-        <h1 class="text-xl font-bold hidden md:inline">Logare</h1>
-      </div>
-
-    </div>
-  </nav>
+  <?php include "./src/nav-component.php"?>
   <main>
     <div
       class="flex h-auto min-h-[calc(100vh-72px)] items-center justify-center overflow-x-hidden bg-[url('https://cdn.flyonui.com/fy-assets/blocks/marketing-ui/auth/auth-background-2.png')] bg-cover bg-center bg-no-repeat py-10">
@@ -78,15 +61,15 @@
 
 
           <div class="">
-            <form class="mb-4 space-y-8" onsubmit="return false;">
+            <form class="mb-4 space-y-8" method="post" action="./PHP-Functions/login-logic.php">
               <div>
-                <label class="label-text" for="userEmail">Adresa de email*</label>
-                <input type="email" placeholder="Enter your email address" class="input" id="userEmail" required />
+                <label class="label-text" for="userEmail">Adresa de email</label>
+                <input type="email" placeholder="Enter your email address" class="input" id="userEmail" name="email" required />
               </div>
               <div>
                 <label class="label-text" for="userPassword">Parola*</label>
                 <div class="input">
-                  <input id="userPassword" type="password" placeholder="············" required />
+                  <input id="userPassword" type="password" name="password" placeholder="············" required />
                   <button
                     type="button"
                     data-toggle-password='{ "target": "#userPassword" }'
@@ -104,7 +87,7 @@
                 </div>
                 <a href="#" class="link link-animated link-primary font-normal">Ai uitat parola?</a>
               </div>
-              <button class="btn btn-lg btn-primary btn-gradient btn-block">Logheaza-te</button>
+              <button name="submit" type="submit" class="btn btn-lg btn-primary btn-gradient btn-block">Logheaza-te</button>
             </form>
             <p class="text-base-content/80 mb-4 text-center">
               Nou pe platforma noastra?
