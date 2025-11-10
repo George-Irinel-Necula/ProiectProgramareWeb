@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php 
+include_once './PHP-Functions/functions.php';
+?>
 <head>
   <?php require "./PHP-Functions/live-server.php"?>
   <meta charset="UTF-8">
@@ -13,23 +15,24 @@
 </head>
 
 <body data-theme="elixirul-tineretii">
-  <?php include "./src/nav-component.php"?>
+  <?php include "./Resources/nav-component.php"?>
+  <?php checkUserLoggedIn()?>
   <main class="px-6">
-    <div class="container bg-base-200 w-3/4 mx-auto mt-12 p-8 rounded-lg shadow-lg">
-      <h1 class="text-3xl font-semibold mb-2">Profil</h1>
-      <form class="space-y-4 mt-4" action="" method="POST">
-        <input type="email" name="email" id="email" placeholder="Email" class="input">
-        <input type="text" name="nume" id="nume" placeholder="Nume" class="input">
-        <button class="btn btn-primary w-32">Update</button>
+    <div class="container bg-base-200 w-2/4 mx-auto mt-12 p-8 rounded-lg shadow-lg">
+      <h1 class="text-3xl font-semibold mb-2"><span class="icon-[tabler--user] size-6 mr-2"></span>Profil</h1>
+      <form class="space-y-4 mt-4" action="./PHP-Functions/edit-profile.php" method="POST">
+        <label for="email">Email:</label><input type="email" name="email" id="email" placeholder="Email" <?php echo 'value="' . $_SESSION["email"] . '"';?> class="input">
+        <label for="username">Username:</label><input type="text" name="username" id="nume" placeholder="Nume" <?php echo 'value="' . $_SESSION["username"] . '"';?> class="input">
+        <button type="submit" name="submit" class="btn btn-primary"><span class="icon-[tabler--reload] size-6"></span>Actualizeaza</button>
       </form>
 
     </div>
-    <div class="container bg-base-200 w-3/4 mx-auto mt-8 p-8 rounded-lg shadow-lg">
-      <h1 class="text-3xl font-semibold mb-2">Parola</h1>
+    <div class="container bg-base-200 w-2/4 mx-auto mt-8 p-8 rounded-lg shadow-lg">
+      <h1 class="text-3xl font-semibold mb-2"><span class="icon-[tabler--key] size-6 mr-2"></span>Parola</h1>
 
-      <form class="space-y-4 mt-4" action="" method="POST">
-        <input type="password" name="password" id="password" placeholder="New password" class="input">
-        <button class="btn btn-primary w-32">Update</button>
+      <form class="space-y-4 mt-4" action="./PHP-Functions/edit-profile.php" method="POST">
+        <label for="password">Parola:</label><input type="password" name="password" id="password" placeholder="New password" class="input">
+        <button type="submit" name="submit2" class="btn btn-primary"><span class="icon-[tabler--reload] size-6"></span>Actualizeaza</button>
       </form>
     </div>
   </main>

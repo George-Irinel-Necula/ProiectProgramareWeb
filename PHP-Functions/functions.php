@@ -98,6 +98,8 @@ function logInUser($conn,$email,$password){
     }else if($passwordVerify==true){
     session_start();
     $_SESSION["email"]=$emailExists["email"];
+    $_SESSION["id"]=$emailExists["id"];
+    $_SESSION["username"]=$emailExists["username"];
         header("location: ../index.php?login=success");
         exit();
 }
@@ -144,6 +146,13 @@ function updateUserPassword($conn, $newPassword) {
 
     header("location: ../profile.php?error=none");
     exit();
+}
+
+function checkUserLoggedIn() {
+    if (!isset($_SESSION["email"]) || empty($_SESSION["email"])) {
+        header("location: ./index.php?error=notLoggedIn");
+        exit();
+    }
 }
 
 

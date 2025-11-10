@@ -14,7 +14,7 @@
 </head>
 
 <body data-theme="elixirul-tineretii">
-  <?php include "./src/nav-component.php"?>
+  <?php include "./Resources/nav-component.php"?>
   <main class="">
     <section class="hero xl:min-h-[calc(85vh)] flex w-full justify-center items-center md:py-36 py-24 px-6">
       <div class="hero-container w-full md:w-3/4 flex md:flex-row flex-col-reverse gap-6">
