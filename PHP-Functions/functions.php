@@ -1,49 +1,52 @@
 <?php
 
-function isNotEmpty($email,$username,$password,$password_repeat) {
-    if(empty($email)||empty($username)||empty($password)||empty($password_repeat)) {
+function isNotEmpty($email, $username, $password, $password_repeat)
+{
+    if (empty($email) || empty($username) || empty($password) || empty($password_repeat)) {
         return false;
     }
     return true;
 }
 
-function isNotEmptyLogIn($email,$password) {
-    if(empty($email)||empty($password)) {
+function isNotEmptyLogIn($email, $password)
+{
+    if (empty($email) || empty($password)) {
         return false;
     }
     return true;
 }
 
-function passwordMatch($password,$password_repeat){
-    if($password==$password_repeat){
+function passwordMatch($password, $password_repeat)
+{
+    if ($password == $password_repeat) {
         return true;
-    }
-    else
+    } else
         return false;
 }
 
-function emailExists($conn,$email){
-    $sql="SELECT * FROM users WHERE email = ?";
-    $stmt=mysqli_stmt_init($conn);
-    if(!mysqli_stmt_prepare($stmt,$sql)){
+function emailExists($conn, $email)
+{
+    $sql = "SELECT * FROM users WHERE email = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../register.php?error=stmt_error");
         exit();
     }
-    mysqli_stmt_bind_param($stmt,"s",$email);
+    mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
 
-    $result=mysqli_stmt_get_result($stmt);
+    $result = mysqli_stmt_get_result($stmt);
     $row = mysqli_fetch_assoc($result);
     mysqli_stmt_close($stmt);
-    if($row){
+    if ($row) {
         return $row;
-    }
-    else {
+    } else {
         return false;
     }
 }
 
-function userNameExists($conn, $username){
+function userNameExists($conn, $username)
+{
     $sql = "SELECT * FROM users WHERE username = ?";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -65,47 +68,50 @@ function userNameExists($conn, $username){
 }
 
 
-function createUser($conn,$username,$email,$password,$password_repeat){
-    $sql="INSERT INTO users (username,email,password) VALUES (?,?,?)";
-    $stmt=mysqli_stmt_init($conn);
-    if(!mysqli_stmt_prepare($stmt,$sql)){
+function createUser($conn, $username, $email, $password, $password_repeat)
+{
+    $sql = "INSERT INTO users (username,email,password) VALUES (?,?,?)";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../register.php?error=stmt_error");
         exit();
     }
 
-    $password_hash=password_hash($password,PASSWORD_DEFAULT);
+    $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt,"sss",$username,$email,$password_hash);
+    mysqli_stmt_bind_param($stmt, "sss", $username, $email, $password_hash);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../login.php?");
     exit();
 }
 
-function logInUser($conn,$email,$password){
-    $emailExists = emailExists($conn,$email);
+function logInUser($conn, $email, $password)
+{
+    $emailExists = emailExists($conn, $email);
 
-    if($emailExists==false){
+    if ($emailExists == false) {
         header("location: ../login.php?error=incorrectLogin");
         exit();
     }
-    $hashedPassword=$emailExists["password"];
-    $passwordVerify=password_verify($password,$hashedPassword);
+    $hashedPassword = $emailExists["password"];
+    $passwordVerify = password_verify($password, $hashedPassword);
 
-    if($passwordVerify==false){
+    if ($passwordVerify == false) {
         header("location: ../login.php?error=incorrectLogin");
         exit();
-    }else if($passwordVerify==true){
-    session_start();
-    $_SESSION["email"]=$emailExists["email"];
-    $_SESSION["id"]=$emailExists["id"];
-    $_SESSION["username"]=$emailExists["username"];
+    } else if ($passwordVerify == true) {
+        session_start();
+        $_SESSION["email"] = $emailExists["email"];
+        $_SESSION["id"] = $emailExists["id"];
+        $_SESSION["username"] = $emailExists["username"];
         header("location: ../index.php?login=success");
         exit();
-}
+    }
 }
 
-function updateUserInfo($conn, $newEmail, $newUsername) {
+function updateUserInfo($conn, $newEmail, $newUsername)
+{
     session_start();
     $currentEmail = $_SESSION['email'];
 
@@ -127,10 +133,11 @@ function updateUserInfo($conn, $newEmail, $newUsername) {
     exit();
 }
 
-function updateUserPassword($conn, $newPassword) {
+function updateUserPassword($conn, $newPassword)
+{
     session_start();
     $email = $_SESSION['email'];
-    
+
     $sql = "UPDATE users SET password = ? WHERE email = ?";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -138,9 +145,9 @@ function updateUserPassword($conn, $newPassword) {
         exit();
     }
 
-    $hashedPassword=password_hash($newPassword,PASSWORD_DEFAULT);
+    $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "ss", $hashedPassword,$email);
+    mysqli_stmt_bind_param($stmt, "ss", $hashedPassword, $email);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
@@ -148,12 +155,10 @@ function updateUserPassword($conn, $newPassword) {
     exit();
 }
 
-function checkUserLoggedIn() {
+function checkUserLoggedIn()
+{
     if (!isset($_SESSION["email"]) || empty($_SESSION["email"])) {
         header("location: ./index.php?error=notLoggedIn");
         exit();
     }
 }
-
-
-?>

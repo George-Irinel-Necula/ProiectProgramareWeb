@@ -14,13 +14,12 @@ if (isset($_POST["submit"])) {
     }
 
 
-    if(userNameExists($conn,$username)!==false || emailExists($conn,$username)!==false){
+    if (userNameExists($conn, $username) !== false || emailExists($conn, $username) !== false) {
         header("location: ../profile.php?error=userOrEmailTaken");
         exit();
-    }
-    else{
-         updateUserInfo($conn, $email, $username);
-         exit();
+    } else {
+        updateUserInfo($conn, $email, $username);
+        exit();
     }
 }
 
