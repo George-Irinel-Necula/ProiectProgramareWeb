@@ -13,3 +13,5 @@ Proiect Anul 3 pentru la Programare Web - Sem I
 -GIT  
 -NPM  
 -PHP
+-MySQL
+-XAMPP
