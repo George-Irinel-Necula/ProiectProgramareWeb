@@ -162,3 +162,17 @@ function checkUserLoggedIn()
         exit();
     }
 }
+
+function getCount() {
+    include_once __DIR__ . '/db-connect.php';
+    $sql = "SELECT COUNT(*) as total FROM giveaway";
+    $result = mysqli_query($conn, $sql);
+
+    if($result) {
+        $row = mysqli_fetch_assoc($result);
+        return $row['total'];
+    } else {
+        return 0;
+    }
+}
+?>

@@ -9,6 +9,7 @@ session_start();
     <div class="flex flex-1 items-center gap-2 ">
       <svg class="icon-[tabler--spray] size-6 hidden sm:flex"></svg>
       <a class="text-base-content text-2xl font-bold no-underline" href="./index.php">ElixirulTineretii</a>
+      
       <?php
       if($pageName != "index"){
         echo '<div class="divider divider-horizontal px-2 hidden md:flex"></div>
@@ -17,9 +18,7 @@ session_start();
       ?>
     </div>
     <div class="navbar-end flex items-center gap-4">
-      <?php
-      if($pageName == "index"){
-        echo '<div class="dropdown relative hidden md:inline-flex">
+      <div class="dropdown relative hidden md:inline-flex">
           <button id="dropdown-default" type="button" class="dropdown-toggle btn btn-primary btn-outline" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
             <span class="icon-[tabler--droplet] size-6 rtl:rotate-180"></span>
             <h1>Teme</h1>
@@ -29,7 +28,10 @@ session_start();
             <li><a class="dropdown-item" id="elixirul-tineretii" href="#"><span class="icon-[tabler--moon] size-6"></span>Dark Mode</a></li>
             <li><a class="dropdown-item" id="elixirul-tineretii-light" href="#"><span class="icon-[tabler--sun] size-6"></span>Light Mode</a></li>
           </ul>
-        </div>';
+        </div>
+      <?php
+      if($pageName == "index"){
+        echo '';
 
         if(!isset($_SESSION["email"])){
           echo '<a class="btn btn-primary hidden md:flex" href="./login.php">
@@ -40,11 +42,13 @@ session_start();
           echo '<div class="dropdown relative hidden md:inline-flex">
           <button id="dropdown-default" type="button" class="dropdown-toggle btn btn-primary" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
             <span class="icon-[tabler--user] size-6 rtl:rotate-180"></span>
-            <h1>' . $_SESSION["email"] .'</h1>
+            <h1>' . (string)$_SESSION["email"] .'</h1>
             <span class="icon-[tabler--chevron-down] dropdown-open:rotate-180 size-4"></span>
           </button>
           <ul class="dropdown-menu dropdown-open:opacity-100 hidden min-w-60" role="menu" aria-orientation="vertical" aria-labelledby="scope-dropdown-nested">
             <li><a class="dropdown-item" href="./profile.php"><span class="icon-[tabler--pencil] size-6"></span>Edit profile</a></li>
+            <li><a class="dropdown-item" href="./formular.php"><span class="icon-[tabler--award] size-6"></span>Concurs</a></li>
+            <div class="divider"></div>  
             <li><a class="dropdown-item bg-error w-full" href="./PHP-Functions/logout.php " id="logout"><span class="icon-[tabler--login] size-6"></span>Log Out</a></li>
           </ul>
         </div>';
@@ -68,6 +72,8 @@ session_start();
               </button>
               <ul class="dropdown-menu dropdown-open:opacity-100 hidden min-w-60" role="menu" aria-orientation="vertical" aria-labelledby="scope-dropdown-nested">
                 <li><a class="dropdown-item" href="../profile.php"><span class="icon-[tabler--pencil] size-6"></span>Edit profile</a></li>
+                 <li><a class="dropdown-item" href="./formular.php"><span class="icon-[tabler--award] size-6"></span>Concurs</a></li>
+                 <div class="divider"></div>  
             <li><a class="dropdown-item bg-error w-full" href="./PHP-Functions/logout.php" id="logout"><span class="icon-[tabler--login] size-6"></span>Log Out</a></li>
               </ul>
             </li>';
