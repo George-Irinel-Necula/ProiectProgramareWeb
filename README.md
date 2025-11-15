@@ -12,6 +12,6 @@ Proiect Anul 3 pentru la Programare Web - Sem I
 -FlyonUI  
 -GIT  
 -NPM  
--PHP
--MySQL
+-PHP 
+-MySQL 
 -XAMPP
