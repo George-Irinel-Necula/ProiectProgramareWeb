@@ -14,7 +14,8 @@
 </head>
 
 <body data-theme="elixirul-tineretii">
-  <?php include "./src/nav-component.php"?>
+  <?php include "./Resources/nav-component.php"?>
+  <?php include "./PHP-Functions/products.php"?>
   <main class="">
     <section class="hero xl:min-h-[calc(85vh)] flex w-full justify-center items-center md:py-36 py-24 px-6">
       <div class="hero-container w-full md:w-3/4 flex md:flex-row flex-col-reverse gap-6">
@@ -54,107 +55,10 @@
         <h1 class="text-4xl font-bold">Produsele noastre de top</h1>
         <p>Aici puteti vedea selectia noastra de produse celebre si apreciate de clienti.</p>
         <div class="cards w-full grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center mt-6">
-
-
-          <div class="card card-xs sm:max-w-xs">
-            <figure><img
-                src="https://s13emagst.akamaized.net/products/32486/32485503/images/res_d47f98e338339276191b5af1b379c15d.jpg?width=720&height=720&hash=F73B29ABE0874998AB7E0E6C9ECACC36"
-                alt=""></figure>
-            <div class="card-body p-4">
-              <h5 class="card-title min-h-12 line-clamp-2">Ruj lichid mat L'Oreal Paris Rouge Signature 104 I Rebel
-                Aubergine
-              </h5>
-              <div class="flex gap-1 py-2 items-center">
-                <span class="icon-[tabler--star-filled]"></span>
-                <span class="icon-[tabler--star-filled]"></span>
-                <span class="icon-[tabler--star-filled]"></span>
-                <span class="icon-[tabler--star-filled]"></span>
-                <span class="icon-[tabler--star-filled]"></span>
-                <h5>(2500)</h5>
-                <div class="rating"></div>
-              </div>
-              <div class="card-actions justify-end mt-2">
-                <button class="btn btn-primary btn-outline btn-sm sm:btn-md">Vezi detalii</button>
-                <button class="btn btn-secondary btn-sm sm:btn-md">Cumpara</button>
-              </div>
-            </div>
-          </div>
-          <div class="card card-xs sm:max-w-xs">
-            <figure><img
-                src="https://s13emagst.akamaized.net/products/84539/84538532/images/res_946306bc8d70ed18492619af95a11d0f.jpg?width=720&height=720&hash=5F3B05ECF63117240DEAF3697AFA19AD"
-                alt=""></figure>
-            <div class="card-body p-4">
-              <h5 class="card-title min-h-12 line-clamp-2">Ruj mat L'Oréal Rouge Signature - 142,
-              </h5>
-              <div class="flex gap-1 py-2 items-center">
-                <span class="icon-[tabler--star-filled]"></span>
-                <span class="icon-[tabler--star-filled]"></span>
-                <span class="icon-[tabler--star-filled]"></span>
-                <span class="icon-[tabler--star-filled]"></span>
-                <span class="icon-[tabler--star-filled]"></span>
-                <h5>(2500)</h5>
-                <div class="rating"></div>
-              </div>
-              <div class="card-actions justify-end mt-2">
-                <button class="btn btn-primary btn-outline btn-sm sm:btn-md">Vezi detalii</button>
-                <button class="btn btn-secondary btn-sm sm:btn-md">Cumpara</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="card card-xs sm:max-w-xs">
-            <figure><img
-                src="https://s13emagst.akamaized.net/products/88006/88005427/images/res_ab5e3f54ec0855a701e114458cea7e88.jpg?width=720&height=720&hash=D9B9676384CC538C9E79F65124F5DEBE"
-                alt=""></figure>
-            <div class="card-body p-4">
-              <h5 class="card-title min-h-12 line-clamp-2">Ruj Ultra Mat, Ideal Lilac, Avon
-              </h5>
-              <div class="flex gap-1 py-2 items-center">
-                <span class="icon-[tabler--star-filled]"></span>
-                <span class="icon-[tabler--star-filled]"></span>
-                <span class="icon-[tabler--star-filled]"></span>
-                <span class="icon-[tabler--star-filled]"></span>
-                <span class="icon-[tabler--star-filled]"></span>
-                <h5>(2500)</h5>
-                <div class="rating"></div>
-              </div>
-              <div class="card-actions justify-end mt-auto">
-                <button class="btn btn-primary btn-outline btn-sm sm:btn-md">Vezi detalii</button>
-                <button class="btn btn-secondary btn-sm sm:btn-md">Cumpara</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="card card-xs sm:max-w-xs">
-            <figure><img
-                src="https://s13emagst.akamaized.net/products/8945/8944471/images/res_4963013a79849082f31fc3d99ee8afc2.jpg?width=720&height=720&hash=D4CAF4F03D29F4A7D7A2AB5DE4816DFD"
-                alt=""></figure>
-            <div class="card-body p-4">
-              <h5 class="card-title min-h-12 line-clamp-2">Ruj lichid mat, rezistent la transfer L'Oreal Paris
-                Infaillible Matte Resistance
-              </h5>
-              <div class="flex gap-1 py-2 items-center">
-                <span class="icon-[tabler--star-filled]"></span>
-                <span class="icon-[tabler--star-filled]"></span>
-                <span class="icon-[tabler--star-filled]"></span>
-                <span class="icon-[tabler--star-filled]"></span>
-                <span class="icon-[tabler--star-filled]"></span>
-                <h5>(2500)</h5>
-                <div class="rating"></div>
-              </div>
-              <div class="card-actions justify-end mt-2">
-                <button class="btn btn-primary btn-outline btn-sm sm:btn-md">Vezi detalii</button>
-                <button class="btn btn-secondary btn-sm sm:btn-md">Cumpara</button>
-              </div>
-            </div>
-          </div>
-
-
-
-
-
+          <?php
+            renderProductsFromDB();
+        ?>
         </div>
-
       </div>
     </section>
     <section class="statistics bg-base-200 border-y-1 flex w-full justify-center items-center py-6 px-6">
