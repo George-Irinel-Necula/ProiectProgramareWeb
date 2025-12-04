@@ -71,7 +71,7 @@ session_start();
                 <span class="icon-[tabler--chevron-right] size-6 dropdown-open:rotate-90 ml-auto"></span>
               </button>
               <ul class="dropdown-menu dropdown-open:opacity-100 hidden min-w-60" role="menu" aria-orientation="vertical" aria-labelledby="scope-dropdown-nested">
-                <li><a class="dropdown-item" href="../profile.php"><span class="icon-[tabler--pencil] size-6"></span>Edit profile</a></li>
+                <li><a class="dropdown-item" href="./profile.php"><span class="icon-[tabler--pencil] size-6"></span>Edit profile</a></li>
                  <li><a class="dropdown-item" href="./formular.php"><span class="icon-[tabler--award] size-6"></span>Concurs</a></li>
                  <div class="divider"></div>  
             <li><a class="dropdown-item bg-error w-full" href="./PHP-Functions/logout.php" id="logout"><span class="icon-[tabler--login] size-6"></span>Log Out</a></li>

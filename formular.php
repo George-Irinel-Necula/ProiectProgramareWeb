@@ -16,7 +16,7 @@
 <body data-theme="elixirul-tineretii">
   <?php include "./Resources/nav-component.php"?>
   <main>
-    <div class="main-container px-6 w-3/4  min-h-[calc(100vh-72px)] lg:flex justify-center items-center gap-12 mx-auto">
+    <div class="main-container w-3/4 min-h-[calc(100vh-72px)] lg:flex justify-center items-center gap-12 mx-auto">
 
                 <div class="card lg:w-2/5 bg-base-200 rounded-xl mt-6">
                      <figure><img class="w-full" src="./Resources/pexels-kevin-malik-8762311.jpg" alt="headphone" /></figure>

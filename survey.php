@@ -16,7 +16,7 @@
   <div class="soft-light">
   </div>
   <nav class="navbar w-full shadow-base-100/50 shadow-sm px-6 backdrop-blur-sm">
-    <div class="flex w-full md:w-3/4 justify-between mx-auto">
+    <div class="flex w-full justify-between mx-auto">
       <div class="flex flex-1 items-center gap-2 ">
         <svg class="icon-[tabler--spray] size-6"></svg>
         <a class="text-base-content text-2xl font-bold no-underline" href="./index.html">
