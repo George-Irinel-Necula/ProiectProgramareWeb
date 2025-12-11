@@ -1,18 +1,15 @@
-
 <?php
-class Product
+class FeaturedProduct
 {
     public string $name;
     public string $photo;
     public float $rating;
-    public float $price;
 
-    public function __construct(string $name, string $photo, float $rating, float $price)
+    public function __construct(string $name, string $photo, float $rating)
     {
         $this->name = $name;
         $this->photo = $photo;
         $this->rating = $rating;
-        $this->price=$price;
     }
 
     public function render()
@@ -39,22 +36,22 @@ class Product
     }
 }
 
-function renderProductsFromDB() {
+
+function renderFeaturedProductsFromDB()
+{
     include "./PHP-Functions/db-connect.php";
-    $sql = "SELECT product_name, photo, rating FROM products";
+    $sql = "SELECT product_name, photo, rating FROM featured_products";
     $result = $conn->query($sql);
 
     if ($result && $result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $product = new Product(
+            $product = new FeaturedProduct(
                 $row['product_name'],
                 $row['photo'],
                 (float)$row['rating']
             );
             $product->render();
         }
-    } else {
-        echo "<p>No products found.</p>";
     }
 }
 

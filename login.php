@@ -14,7 +14,7 @@
 </head>
 
 <body data-theme="elixirul-tineretii">
-  <?php include "./Resources/nav-component.php" ?>
+  <?php include "./Resources/nav-component.php"?>
   <main>
     <div
       class="flex h-auto min-h-[calc(100vh-72px)] items-center justify-center overflow-x-hidden bg-[url('https://cdn.flyonui.com/fy-assets/blocks/marketing-ui/auth/auth-background-2.png')] bg-cover bg-center bg-no-repeat py-10">

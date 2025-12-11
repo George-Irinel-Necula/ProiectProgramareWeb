@@ -20,10 +20,14 @@ if (isset($_POST["submit"])) {
         exit();
     }
 
+    if(emailExists($conn,$email)!==false){
+    header("location: ../register.php?error=emailExists");
+    exit();
+    }
 
-    if (emailExists($conn, $email) !== false) {
-        header("location: ../register.php?error=userExists");
-        exit();
+    if(userNameExists($conn,$username)!==false){
+    header("location: ../register.php?error=userNameExists");
+    exit();
     }
 
     createUser($conn, $username, $email, $password, $password_repeat);

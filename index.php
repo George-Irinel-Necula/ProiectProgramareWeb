@@ -15,7 +15,7 @@
 
 <body data-theme="elixirul-tineretii">
   <?php include "./Resources/nav-component.php"?>
-  <?php include "./PHP-Functions/products.php"?>
+  <?php include "./PHP-Functions/featured_products.php"?>
   <main class="">
     <section class="hero xl:min-h-[calc(85vh)] flex w-full justify-center items-center md:py-36 py-24 px-6">
       <div class="hero-container w-full md:w-3/4 flex md:flex-row flex-col-reverse gap-6">
@@ -27,7 +27,7 @@
             cele mai exigente cerinte ale clientilor nostri. Cu o gama variata de produse, de la ingrijirea pielii la
             machiaj, ne angajam sa oferim doar cele mai bune solutii pentru frumusetea si ingrijirea ta.</p>
           <div class="w-full gap-4 flex flex-wrap">
-            <a class="btn btn-primary btn-lg" href="./shop.html">Vezi produse</a>
+            <a class="btn btn-primary btn-lg" href="./store.php">Vezi produse</a>
             <a class="btn btn-secondary btn-outline btn-lg" href="#">Afla Mai Multe</a>
           </div>
         </div>
@@ -56,7 +56,7 @@
         <p>Aici puteti vedea selectia noastra de produse celebre si apreciate de clienti.</p>
         <div class="cards w-full grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center mt-6">
           <?php
-            renderProductsFromDB();
+            renderFeaturedProductsFromDB();
         ?>
         </div>
       </div>
