@@ -4,7 +4,7 @@
 include_once './PHP-Functions/functions.php';
 ?>
 <head>
-  <?php require "./PHP-Functions/live-server.php"?>
+  <?php require "./PHP-Functions/live-server.php" ?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elixirul Tineretii</title>

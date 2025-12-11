@@ -20,7 +20,7 @@
     <section class="hero xl:min-h-[calc(85vh)] flex w-full justify-center items-center md:py-36 py-24 px-6">
       <div class="hero-container w-full md:w-3/4 flex md:flex-row flex-col-reverse gap-6">
         <div class="hero-left md:w-1/2 flex flex-col gap-8 justify-center">
-          <h1 class="font-extrabold lg:text-7xl md:text-6xl text-5xl">Descoperiti gama noastra de produse de <span
+          <h1 class="font-extrabold lg:text-6xl md:text-6xl text-5xl">Descoperiti gama noastra de produse de <span
               class="text-primary">calitate premium</span>
           </h1>
           <p class="text-lg">Suntem distribuitori de produse cosmetice premium, special concepute pentru a satisface

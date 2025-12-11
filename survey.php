@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <?php require "./PHP-Functions/live-server.php"?>
+  <?php require "./PHP-Functions/live-server.php" ?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elixirul Tineretii</title>
@@ -16,7 +16,7 @@
   <div class="soft-light">
   </div>
   <nav class="navbar w-full shadow-base-100/50 shadow-sm px-6 backdrop-blur-sm">
-    <div class="flex w-full md:w-3/4 justify-between mx-auto">
+    <div class="flex w-full justify-between mx-auto">
       <div class="flex flex-1 items-center gap-2 ">
         <svg class="icon-[tabler--spray] size-6"></svg>
         <a class="text-base-content text-2xl font-bold no-underline" href="./index.html">
