@@ -30,6 +30,7 @@ class Product
                     <span class="icon-[tabler--star-filled]"></span>
                     <h5 class="text-md">(' . $this->rating . ')' . '</h5>
                 </div>
+                <h1 class="text-end text-xl text-white">'.$this->price . 'Lei</h1>
                 <div class="card-actions justify-end mt-2">
                     <button class="btn btn-primary btn-outline btn-sm sm:btn-md">Vezi detalii</button>
                     <button class="btn btn-secondary btn-sm sm:btn-md">Cumpara</button>
@@ -39,20 +40,40 @@ class Product
     }
 }
 
-function renderProductsFromDB() {
+function renderProductsFromDB()
+{
     include "./PHP-Functions/db-connect.php";
-    $sql = "SELECT product_name, photo, rating FROM products";
+    $sql = "SELECT product_name, photo, rating,price FROM products";
     $result = $conn->query($sql);
 
     if ($result && $result->num_rows > 0) {
+
+        $count = 0;
+
         while ($row = $result->fetch_assoc()) {
+
+            if ($count % 4 === 0) {
+                echo '<div class="w-full grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center mt-6">';
+            }
+
             $product = new Product(
                 $row['product_name'],
                 $row['photo'],
-                (float)$row['rating']
+                (float)$row['rating'],
+                (float)$row['price']
             );
             $product->render();
+
+            if ($count % 4 === 3) {
+                echo '</div>';
+            }
+
+            $count++;
         }
+        if ($count % 4 !== 0) {
+            echo '</div>';
+        }
+
     } else {
         echo "<p>No products found.</p>";
     }
