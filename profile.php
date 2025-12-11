@@ -24,6 +24,17 @@ include_once './PHP-Functions/functions.php';
         <label for="email">Email:</label><input type="email" name="email" id="email" placeholder="Email" <?php echo 'value="' . $_SESSION["email"] . '"';?> class="input">
         <label for="username">Username:</label><input type="text" name="username" id="nume" placeholder="Nume" <?php echo 'value="' . $_SESSION["username"] . '"';?> class="input">
         <button type="submit" name="submit" class="btn btn-primary"><span class="icon-[tabler--reload] size-6"></span>Actualizeaza</button>
+        <?php
+
+
+    $subject = "Date ElixirulTinereti.com";
+    $body="Acestea sunt datele personale ale contului tau:" . $_SESSION["email"] .$_SESSION["username"];
+    $email = "irinelnecula@yahoo.com";
+    echo "<a class='btn btn-secondary mb-4' href=\"mailto:$email?subject=$subject&body=$body\">Trimite Email</a>";
+
+
+
+?>
       </form>
 
     </div>

@@ -12,7 +12,7 @@ class Product
         $this->name = $name;
         $this->photo = $photo;
         $this->rating = $rating;
-        $this->price=$price;
+        $this->price= $price;
     }
 
     public function render()
