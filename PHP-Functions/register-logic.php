@@ -21,8 +21,13 @@ include_once './functions.php';
     }
    
 
-    if(userExists($conn,$email)!==false){
-    header("location: ../register.php?error=userExists");
+    if(emailExists($conn,$email)!==false){
+    header("location: ../register.php?error=emailExists");
+    exit();
+    }
+
+    if(userNameExists($conn,$username)!==false){
+    header("location: ../register.php?error=userNameExists");
     exit();
     }
     
